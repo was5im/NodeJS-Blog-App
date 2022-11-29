@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <title>BLOG</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <i class="fa-solid fa-bars menu"></i>
+            <a href="/home">
+                <h1>READER</h1>
+            </a>
+            <ul class="right">
+                <li><i class="fa-regular fa-bell bell"></i></li>
+                <% if(user) { %>
+                    <li><a href="/user/<%= user.username %>"><img src="/images/profile.jfif" alt="profile"
+                                class="avatar"></a>
+                    </li>
+                    <% } %>
+                </li>
+                <li>
+                    <a href="/newBlog">
+                        <div class="write">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <h3>Write</h3>
+                        </div>
+                    </a>
+                </li>
+                <% if(user) { %>
+                    <li>
+                        <a href="/logout">
+                            <div class="logout">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <h3>Logout</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <% } %>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="section">
+            <div class="blogs">
+                <div class="blog-post">
+                    <div class="blog-post__img">
+                        <img src="/images/porsche.jpg" alt="">
+                    </div>
+                    <div class="blog-post__info">
+                        <div class="blog-post__author">
+                            <img src="/images/profile.jfif" alt="" class="blog-post__author__avatar">
+                            <a href="" class="blog-post__author-info">
+                                <h3 class="blog-post__author__name"><%= blog.user_name %></h3>
+                                <h4 class="blog-post__author__bio">Msc Networks and Embedded Systems | Siemens
+                                    Algeria
+                                </h4>
+                            </a>
+                        </div>
+                        <h1 class="blog-post__title">
+                            <%= blog.title %>
+                        </h1>
+                        <p class="blog-post__text">
+                            <%= blog.body %>
+                        </p>
+                        <a href="#" class="blog-post__btn">UX Design</a>
+                        <a href="#" class="blog-post__btn">4 min read</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

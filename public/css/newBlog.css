@@ -1,0 +1,48 @@
+.form-box{
+    background-color: #F7FAFC;
+    width: 70%;
+    margin: 2rem auto;
+    border: 1px solid rgba(150, 150, 150, .1);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+input,
+textarea,
+button{
+    width: 85%;
+    border-radius: .5rem;
+    border: 1px solid rgba(150, 150, 150, 1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.username,
+.caption,
+.body,
+.image,
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+label{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+input[type=file]{
+    border: 1px dashed rgba(150, 150, 150, 1);
+}
+
+.username input{
+    background-color: #F7FAFC;
+}
+
+button{
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: #F7FAFC;
+}

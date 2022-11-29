@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(191, 196, 201, .5);
+}
+
+.wrapper{
+    /* margin-top: 3.7rem; */
+    width: 80%;
+    height: 50rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-image{
+    filter: grayscale(100%);
+    width: 70%;
+}
+
+.signup-section{
+    background-color: white;
+    padding: 10rem 0;
+    position: relative;
+}
+
+.signup-section h1{
+    margin: 0 3rem .5rem 3rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color:rgb(1, 1, 37);
+}
+
+.signup-section p{
+    margin: 0 3rem 1.5rem 3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(117, 117, 117, .9);
+}
+
+.signup-section input{
+    width: calc(100% - 7rem);
+    border: none;
+    border-bottom: 1px solid rgba(117, 117, 117, .4);
+    margin: 1rem 4rem 1rem 3rem;
+    padding: .3rem 0;
+}
+
+.signup-section input:focus{
+    border-bottom: 1px solid rgba(117, 117, 117, .4);
+    outline: none;
+}
+
+.google-btn, .btn{
+    margin: 1rem 4rem 1rem 3rem;
+    display: block;
+    width: calc(100% - 7rem);
+    height: 2.9rem;
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn{
+    color: white;
+    background-color:rgb(1, 1, 37);
+}
+
+.google-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(40, 40, 40);
+    background-color: white;
+    border: 1px solid rgba(181, 181, 181, 0.6);
+    margin-bottom: 3rem;
+}
+
+.google-img{
+    width: 2rem;
+    height: 2rem;
+    margin-right: .5rem;
+}
+
+button a{
+    text-decoration: none;
+}
+
+.pwd-link{
+    position: absolute;
+    right: 4rem;
+    top: 23.5rem;
+    margin-bottom: 10rem;
+}
+
+.spacer{
+    margin: 2.5rem 0;
+}
+
+.footer{
+    text-align: center;
+}
+
+
+span{
+    color: rgba(117, 117, 117, .9);
+}
+
+.login-link{
+    color: rgba(25, 25, 25, 0.9);
+}
+
+.login-link:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px){
+    .main-image{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 789px){
+    .main-image{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 624px){
+    .main-image{
+        display: none;
+    }
+}

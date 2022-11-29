@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/newBlog.css">
+    <title>New Blog</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <i class="fa-solid fa-bars menu"></i>
+            <a href="/home">
+                <h1>READER</h1>
+            </a>
+            <ul class="right">
+                <li><i class="fa-regular fa-bell bell"></i></li>
+                <li><a href="/user/<%= blog.user_name %>"><img src="/images/profile.jfif" alt="profile"
+                            class="avatar"></a>
+                </li>
+                <li>
+                    <a href="logout">
+                        <div class="logout">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <h3>Logout</h3>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <form class="form-box">
+        <div class="id" style="visibility: hidden; position:absolute;">
+            <label for="username">ID</label>
+            <input type="text" name="id" value="<%= blog._id %>">
+        </div>
+        <div class="username">
+            <label for="username">Username</label>
+            <input type="text" name="username" value="<%= blog.user_name %>" readonly>
+        </div>
+        <div class="caption">
+            <label for="caption">Caption</label>
+            <input type="text" name="caption" value="<%= blog.title %>">
+        </div>
+        <div class="body">
+            <label for="body">Body</label>
+            <textarea name="body" rows="15"><%= blog.body %></textarea>
+        </div>
+        <!-- <div class="image">
+            <label for="body">Upload Image</label>
+            <input type="file" name="image">
+        </div> -->
+        <div class="button">
+            <label for=""></label>
+            <button>Update Blog</button>
+        </div>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // get the values
+            const _id = form.id.value;
+            const user_name = form.username.value;
+            const title = form.caption.value;
+            const body = form.body.value;
+
+            const endpoint = `/update/${_id}`;
+
+            try {
+                const result = await fetch(endpoint, {
+                    method: 'PATCH',
+                    body: JSON.stringify({  user_name, title, body }),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                const data = await result.json();
+                console.log(_id);
+                if (data) {
+                    location.assign('/home');
+                }
+                else {
+                    location.assign('/404');
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        })
+    </script>
+
+</body>
+
+</html>

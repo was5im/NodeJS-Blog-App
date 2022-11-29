@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>BLOG</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <i class="fa-solid fa-bars menu"></i>
+            <a href="/home">
+                <h1>READER</h1>
+            </a>
+            <ul class="right">
+                <li><i class="fa-regular fa-bell bell"></i></li>
+                <% if(user) { %>
+                    <li><a href="/user/<%= user.username %>"><img src="images/profile.jfif" alt="profile"
+                                class="avatar"></a>
+                    </li>
+                    <% } %>
+                        <li>
+                            <a href="newBlog">
+                                <div class="write">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <h3>Write</h3>
+                                </div>
+                            </a>
+                        </li>
+                        <% if(user) { %>
+                            <li>
+                                <a href="/logout">
+                                    <div class="logout">
+                                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                        <h3>Logout</h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <% } %>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="section">
+            <div class="topics">
+                <input type="text" name="search" id="search" class="search" placeholder="Search">
+                <h3>My topics:</h3>
+                <a href="#">Design</a>
+                <a href="#">Development</a>
+                <a href="#">UX</a>
+                <a href="#">Marketing</a>
+            </div>
+            <div class="article">
+                <h2>Articles</h2>
+                <div class="btn">
+                    <a href="#">Following</a>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+            <% if (blogs.length> 0) { %>
+                <% blogs.forEach(blog=> { %>
+                    <div class="blogs">
+                        <div class="devider"></div>
+                        <div class="blog-post">
+                            <div class="blog-post__info">
+                                <div class="blog-post__author">
+                                    <img src="images/profile.jfif" alt="" class="blog-post__author__avatar">
+                                    <a href="/user/<%= blog.user_name %>" class="blog-post__author-info">
+                                        <h3 class="blog-post__author__name">
+                                            <%= blog.user_name %>
+                                        </h3>
+                                        <h4 class="blog-post__author__bio">Msc Networks and Embedded Systems | Siemens
+                                            Algeria
+                                        </h4>
+                                    </a>
+                                </div>
+                                <a href="/blog/<%= blog._id %>">
+                                    <h1 class="blog-post__title">
+                                        <%= blog.title %>
+                                    </h1>
+                                </a>
+                                <p class="blog-post__text">
+                                    <%= blog.body %>
+                                </p>
+                                <a href="#" class="blog-post__btn">UX Design</a>
+                                <a href="#" class="blog-post__btn">4 min read</a>
+                            </div>
+                            <div class="blog-post__img">
+                                <img src="images/porsche.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } %>
+        </div>
+        <div class="aside">
+            <div class="card">
+                <div class="left">
+                    <h1>Get unlimited access to everything on Reader</h1>
+                    <p>Plans starting at less than 1$/week.</p>
+                    <a href="#">Get unlimited access</a>
+                </div>
+                <div class="right">
+                    <img src="images/notebook.png" alt="" class="notebook">
+                </div>
+            </div>
+            <h1 class="interest">People you might be interested</h1>
+            <div class="following">
+                <div class="first">
+                    <img src="images/profile.jfif" alt="">
+                    <div class="info">
+                        <h3 class="name">Behiani Mohamed</h3>
+                        <p class="bio">Msc Networks and Embedded Systems | Siemens Algeria</p>
+                    </div>
+                    <div class="follow-btn">
+                        <a href="#">Follow</a>
+                    </div>
+                </div>
+                <div class="seconde">
+                    <img src="images/person1.jpg" alt="">
+                    <div class="info">
+                        <h3 class="name">Laraba Oussama</h3>
+                        <p class="bio">Msc Networks and Embedded Systems | Siemens Algeria</p>
+                    </div>
+                    <div class="follow-btn">
+                        <a href="#">Follow</a>
+                    </div>
+                </div>
+                <div class="third">
+                    <img src="images/person2.jfif" alt="">
+                    <div class="info">
+                        <h3 class="name">Abdou Lounis</h3>
+                        <p class="bio">Msc Networks and Embedded Systems | Siemens Algeria</p>
+                    </div>
+                    <div class="follow-btn">
+                        <a href="#">Follow</a>
+                    </div>
+                </div>
+            </div>
+            <h1 class="reading-title">My reading list</h1>
+            <div class="reading-post">
+                <div class="reading-post__img">
+                    <img src="images/porsche.jpg" alt="">
+                </div>
+                <div class="reading-post__info">
+                    <h1 class="reading-post__title">A Beginner's Guid to White Balance in Photography</h1>
+                    <p class="reading-post__text">Lorem ipsum dolor sit amet adipisicing elit. Quas
+                        quo dolore this is the end.</p>
+                    <div class="reading-post__author">
+                        <img src="images/profile.jfif" alt="" class="reading-post__author__avatar">
+                        <a class="reading-post__author-info">
+                            <h3 class="reading-post__author__name">Behiani Mohamed</h3>
+                            <span>.</span>
+                            <h4 class="reading-post__author__date">Apr 16, 2022</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="reading-post">
+                <div class="reading-post__img">
+                    <img src="images/amg.png" alt="">
+                </div>
+                <div class="reading-post__info">
+                    <h1 class="reading-post__title">A Beginner's Guid to White Balance in Photography</h1>
+                    <p class="reading-post__text">Lorem ipsum dolor sit amet adipisicing elit. Quas
+                        quo dolore this is the end.</p>
+                    <div class="reading-post__author">
+                        <img src="images/person1.jpg" alt="" class="reading-post__author__avatar">
+                        <a class="reading-post__author-info">
+                            <h3 class="reading-post__author__name">Laraba Oussama</h3>
+                            <span>.</span>
+                            <h4 class="reading-post__author__date">Apr 16, 2022</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="reading-post">
+                <div class="reading-post__img">
+                    <img src="images/m8.jpg" alt="">
+                </div>
+                <div class="reading-post__info">
+                    <h1 class="reading-post__title">A Beginner's Guid to White Balance in Photography</h1>
+                    <p class="reading-post__text">Lorem ipsum dolor sit amet adipisicing elit. Quas
+                        quo dolore this is the end.</p>
+                    <div class="reading-post__author">
+                        <img src="images/person2.jfif" alt="" class="reading-post__author__avatar">
+                        <a class="reading-post__author-info">
+                            <h3 class="reading-post__author__name">Abdou Lounis</h3>
+                            <span>.</span>
+                            <h4 class="reading-post__author__date">Apr 16, 2022</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

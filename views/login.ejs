@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <title>BLOG</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="images/supercars.jpg" alt="" class="main-image">
+        <form class="signup-section">
+            <h1>Welcome Back</h1>
+            <p>Welcome back! please enter your details</p>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <a href="#" class="login-link pwd-link">Forgot password</a>
+            <div class="spacer"></div>
+            <button class="btn">Login</button>
+            <button class="google-btn"><img src="images/google.png" alt="" class="google-img"><a>Log in with
+                    Google</a></button>
+            <div class="footer">
+                <span>D'ont have an account?</span>
+                <a href="registration" class="login-link signup-link">Sign up for free</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // get the values
+            const email = form.email.value;
+            const password = form.password.value;
+
+            try {
+                const result = await fetch('/login', {
+                    method: 'POST',
+                    body: JSON.stringify({ email, password }),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+
+                const data = await result.json();
+                if (data.user) {
+                    location.assign('/home');
+                }
+                else {
+                    location.assign('/login');
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        })
+    </script>
+</body>
+
+</html>
